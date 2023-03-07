@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mail-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mail
+  template:
+    metadata:
+      labels:
+        app: mail
+    spec:
+      containers:
+      - name: mail-container
+        image: harsha1620/harsha-mail:1
+        ports:
+        - containerPort: 8080
